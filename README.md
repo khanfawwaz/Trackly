@@ -38,24 +38,28 @@
 ## 📸 Screenshots
 
 ### Dashboard
-![Dashboard Screenshot](./screenshots/dashboard.png)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ee80c5f2-cc86-4d86-96ed-f986cd28e0f8" width="500" />
+</p>
 *Main dashboard showing overview of assignments, projects, and internship applications*
 
 ### Assignment Tracker
-![Assignments Screenshot](./screenshots/assignments.png)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7d1352d7-67f0-434d-9109-10d3053624a2" width="800" />
+</p>
 *Manage all your assignments with priority levels and due dates*
 
 ### Project Management
-![Projects Screenshot](./screenshots/projects.png)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b01abd86-0533-4990-9a89-daf224360a90" width="800" />
+</p>
 *Track your academic and personal projects with status updates*
 
 ### Internship Tracker
-![Internships Screenshot](./screenshots/internships.png)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/053abd03-3f70-44cc-8b1f-148b3bd9c887" width="800" />
+</p>
 *Monitor your internship applications and interview progress*
-
-### Calendar View
-![Calendar Screenshot](./screenshots/calendar.png)
-*Visualize all your deadlines and important dates in one place*
 
 ---
 
@@ -197,9 +201,6 @@ Trackly/
 - **Authentication**: Firebase Authentication ensures secure user login and registration
 - **Data Privacy**: Firestore security rules ensure users can only access their own data
 - **HTTPS**: All Firebase connections are encrypted with HTTPS
-
-> ⚠️ **Important**: Never commit your `.env` file to version control. Always use `.env.example` as a template.
-
 ---
 
 ## 🎯 Features in Detail
@@ -228,33 +229,6 @@ Trackly/
 - Project status breakdown
 - Internship application statistics
 - Visual calendar with all important dates
-
----
-
-## 🚀 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Visit [Vercel](https://vercel.com/) and import your repository
-3. Add your environment variables in the Vercel dashboard
-4. Deploy!
-
-### Deploy to Netlify
-
-1. Build the project: `npm run build`
-2. Drag and drop the `dist/` folder to [Netlify Drop](https://app.netlify.com/drop)
-3. Configure environment variables in Netlify settings
-
-### Deploy to Firebase Hosting
-
-```bash
-npm install -g firebase-tools
-firebase login
-firebase init hosting
-npm run build
-firebase deploy
-```
 
 ---
 
