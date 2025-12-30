@@ -12,7 +12,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.0-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-5.0.8-646cff?logo=vite)](https://vitejs.dev/)
 
-[Live Demo](#) • [Report Bug](https://github.com/khanfawwaz/Trackly/issues) • [Request Feature](https://github.com/khanfawwaz/Trackly/issues)
+[Live Demo](https://trackly.fawwazkhan.dev/login) • [Report Bug](https://github.com/khanfawwaz/Trackly/issues) • [Request Feature](https://github.com/khanfawwaz/Trackly/issues)
 
 </div>
 
