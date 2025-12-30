@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useProjects } from './useProjects';
 import { Project } from '../../types';
-import { formatDate } from '../../utils/dateUtils';
+import { formatDate, isOverdue, isAlmostDue } from '../../utils/dateUtils';
 import Badge from '../../components/Badge';
 import Button from '../../components/Button';
 import TabNavigation from '../../components/TabNavigation';
@@ -108,47 +108,66 @@ const ProjectList: React.FC = () => {
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {filteredProjects.map((project) => (
-                            <div key={project.id} className="bg-background-card rounded-lg p-5 shadow-card hover:shadow-card-hover transition-all duration-200 border border-neutral-700 hover:border-primary/50">
-                                <div className="flex items-start justify-between mb-3">
-                                    <h3 className="text-lg font-semibold text-text">{project.name}</h3>
-                                    <Badge variant={project.type === 'Academic' ? 'primary' : 'info'}>
-                                        {project.type}
-                                    </Badge>
-                                </div>
-                                <p className="text-sm text-text-muted mb-3 line-clamp-2">{project.description}</p>
-                                <div className="space-y-1 mb-3 text-sm text-text-muted">
-                                    <p>📅 Started: {formatDate(project.startDate)}</p>
-                                    {project.dueDate && <p>🎯 Due: {formatDate(project.dueDate)}</p>}
-                                    {project.repoLink && (
-                                        <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-secondary-400 hover:underline block transition-colors">
-                                            🔗 Repository
-                                        </a>
-                                    )}
-                                </div>
-                                <div className="flex items-center gap-2 pt-3 border-t border-neutral-100">
-                                    <select
-                                        value={project.status}
-                                        onChange={(e) => updateProject(project.id, { status: e.target.value as 'In Progress' | 'Completed' })}
-                                        className={`
+                        {filteredProjects.map((project) => {
+                            const overdue = isOverdue(project.dueDate, project.status);
+                            const almostDue = !overdue && isAlmostDue(project.dueDate, project.status);
+
+                            return (
+                                <div key={project.id} className={`bg-background-card rounded-lg p-5 shadow-card hover:shadow-card-hover transition-all duration-200 ${overdue ? 'border-2 border-error shadow-glow-primary' : almostDue ? 'border-2 border-yellow-500 shadow-glow-warning' : 'border border-neutral-700 hover:border-primary/50'}`}>
+                                    <div className="flex items-start justify-between mb-3">
+                                        <div className="flex-1">
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <h3 className="text-lg font-semibold text-text">{project.name}</h3>
+                                                {overdue && (
+                                                    <Badge variant="danger" size="sm">
+                                                        Overdue
+                                                    </Badge>
+                                                )}
+                                                {almostDue && (
+                                                    <Badge variant="warning" size="sm">
+                                                        Almost Due
+                                                    </Badge>
+                                                )}
+                                            </div>
+                                        </div>
+                                        <Badge variant={project.type === 'Academic' ? 'primary' : 'info'}>
+                                            {project.type}
+                                        </Badge>
+                                    </div>
+                                    <p className="text-sm text-text-muted mb-3 line-clamp-2">{project.description}</p>
+                                    <div className="space-y-1 mb-3 text-sm text-text-muted">
+                                        <p>📅 Started: {formatDate(project.startDate)}</p>
+                                        {project.dueDate && <p className={overdue ? 'text-error font-medium' : almostDue ? 'text-yellow-500 font-medium' : ''}>🎯 Due: {formatDate(project.dueDate)}</p>}
+                                        {project.repoLink && (
+                                            <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-secondary-400 hover:underline block transition-colors">
+                                                🔗 Repository
+                                            </a>
+                                        )}
+                                    </div>
+                                    <div className="flex items-center gap-2 pt-3 border-t border-neutral-100">
+                                        <select
+                                            value={project.status}
+                                            onChange={(e) => updateProject(project.id, { status: e.target.value as 'In Progress' | 'Completed' })}
+                                            className={`
                                             px-4 py-2 text-sm font-medium rounded-2xl cursor-pointer transition-all
                                             border-2 outline-none focus:ring-2 focus:ring-offset-1
                                             ${project.status === 'Completed'
-                                                ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100 focus:ring-green-300'
-                                                : 'bg-yellow-50 text-yellow-700 border-yellow-200 hover:bg-yellow-100 focus:ring-yellow-300'
-                                            }
+                                                    ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100 focus:ring-green-300'
+                                                    : 'bg-yellow-50 text-yellow-700 border-yellow-200 hover:bg-yellow-100 focus:ring-yellow-300'
+                                                }
                                         `}
-                                    >
-                                        <option value="In Progress">⏳ In Progress</option>
-                                        <option value="Completed">✓ Completed</option>
-                                    </select>
-                                    <div className="ml-auto flex gap-2">
-                                        <Button size="sm" variant="ghost" onClick={() => handleEdit(project)}>Edit</Button>
-                                        <Button size="sm" variant="ghost" onClick={() => handleDelete(project.id)} className="text-red-600 hover:text-red-700 hover:bg-red-50">Delete</Button>
+                                        >
+                                            <option value="In Progress">⏳ In Progress</option>
+                                            <option value="Completed">✓ Completed</option>
+                                        </select>
+                                        <div className="ml-auto flex gap-2">
+                                            <Button size="sm" variant="ghost" onClick={() => handleEdit(project)}>Edit</Button>
+                                            <Button size="sm" variant="ghost" onClick={() => handleDelete(project.id)} className="text-red-600 hover:text-red-700 hover:bg-red-50">Delete</Button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 )}
             </div>

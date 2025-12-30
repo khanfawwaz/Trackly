@@ -1,6 +1,6 @@
 import React from 'react';
 import { Assignment } from '../../types';
-import { formatDate, isOverdue } from '../../utils/dateUtils';
+import { formatDate, isOverdue, isAlmostDue } from '../../utils/dateUtils';
 import Badge from '../../components/Badge';
 import Button from '../../components/Button';
 
@@ -18,6 +18,7 @@ const AssignmentCard: React.FC<AssignmentCardProps> = ({
     onDelete,
 }) => {
     const overdue = isOverdue(assignment.dueDate, assignment.status);
+    const almostDue = !overdue && isAlmostDue(assignment.dueDate, assignment.status);
 
     const priorityColors = {
         Low: 'neutral',
@@ -29,7 +30,7 @@ const AssignmentCard: React.FC<AssignmentCardProps> = ({
         <div
             className={`
         bg-background-card rounded-lg p-5 shadow-card hover:shadow-card-hover transition-all duration-200
-        ${overdue ? 'border-2 border-error shadow-glow-primary' : 'border border-neutral-700 hover:border-primary/50'}
+        ${overdue ? 'border-2 border-error shadow-glow-primary' : almostDue ? 'border-2 border-yellow-500 shadow-glow-warning' : 'border border-neutral-700 hover:border-primary/50'}
       `}
         >
             {/* Header */}
@@ -40,6 +41,11 @@ const AssignmentCard: React.FC<AssignmentCardProps> = ({
                         {overdue && (
                             <Badge variant="danger" size="sm">
                                 Overdue
+                            </Badge>
+                        )}
+                        {almostDue && (
+                            <Badge variant="warning" size="sm">
+                                Almost Due
                             </Badge>
                         )}
                     </div>
@@ -53,7 +59,7 @@ const AssignmentCard: React.FC<AssignmentCardProps> = ({
             {/* Due Date */}
             {assignment.dueDate && (
                 <div className="mb-3">
-                    <p className={`text-sm ${overdue ? 'text-error font-medium' : 'text-text-muted'}`}>
+                    <p className={`text-sm ${overdue ? 'text-error font-medium' : almostDue ? 'text-yellow-500 font-medium' : 'text-text-muted'}`}>
                         📅 Due: {formatDate(assignment.dueDate)}
                     </p>
                 </div>

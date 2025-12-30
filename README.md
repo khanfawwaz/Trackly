@@ -12,7 +12,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.0-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-5.0.8-646cff?logo=vite)](https://vitejs.dev/)
 
-[Live Demo](https://trackly.fawwazkhan.dev/login) • [Report Bug](https://github.com/khanfawwaz/Trackly/issues) • [Request Feature](https://github.com/khanfawwaz/Trackly/issues)
+[Live Demo](#) • [Report Bug](https://github.com/khanfawwaz/Trackly/issues) • [Request Feature](https://github.com/khanfawwaz/Trackly/issues)
 
 </div>
 
@@ -38,28 +38,24 @@
 ## 📸 Screenshots
 
 ### Dashboard
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/ee80c5f2-cc86-4d86-96ed-f986cd28e0f8" width="500" />
-</p>
+![Dashboard Screenshot](./screenshots/dashboard.png)
 *Main dashboard showing overview of assignments, projects, and internship applications*
 
 ### Assignment Tracker
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/7d1352d7-67f0-434d-9109-10d3053624a2" width="800" />
-</p>
+![Assignments Screenshot](./screenshots/assignments.png)
 *Manage all your assignments with priority levels and due dates*
 
 ### Project Management
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/b01abd86-0533-4990-9a89-daf224360a90" width="800" />
-</p>
+![Projects Screenshot](./screenshots/projects.png)
 *Track your academic and personal projects with status updates*
 
 ### Internship Tracker
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/053abd03-3f70-44cc-8b1f-148b3bd9c887" width="800" />
-</p>
+![Internships Screenshot](./screenshots/internships.png)
 *Monitor your internship applications and interview progress*
+
+### Calendar View
+![Calendar Screenshot](./screenshots/calendar.png)
+*Visualize all your deadlines and important dates in one place*
 
 ---
 
@@ -201,6 +197,9 @@ Trackly/
 - **Authentication**: Firebase Authentication ensures secure user login and registration
 - **Data Privacy**: Firestore security rules ensure users can only access their own data
 - **HTTPS**: All Firebase connections are encrypted with HTTPS
+
+> ⚠️ **Important**: Never commit your `.env` file to version control. Always use `.env.example` as a template.
+
 ---
 
 ## 🎯 Features in Detail
@@ -231,6 +230,17 @@ Trackly/
 - Visual calendar with all important dates
 
 ---
+
+## � Install as Android App
+
+Trackly is a **Progressive Web App (PWA)** that can be installed directly from your website without needing the Google Play Store!
+
+### How Users Install:
+
+1. **Look for the "Download Android App" button** (bottom-right corner)
+2. **Click the button** and confirm the installation prompt
+3. **Find Trackly icon** on your home screen
+4. **Open and enjoy** - Works offline with a native app experience!
 
 ## 🤝 Contributing
 

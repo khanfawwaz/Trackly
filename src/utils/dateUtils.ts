@@ -16,12 +16,25 @@ export const formatDateTime = (date: Date): string => {
 };
 
 /**
- * Check if an assignment is overdue
+ * Check if an assignment or project is overdue
  */
 export const isOverdue = (dueDate: Date | null, status: string): boolean => {
-    if (!dueDate || status !== 'Pending') return false;
+    if (!dueDate || (status !== 'Pending' && status !== 'In Progress')) return false;
     const now = new Date();
     return isAfter(now, dueDate);
+};
+
+/**
+ * Check if an assignment or project is almost due
+ * Items are considered almost due if they are within 2 days of their due date
+ */
+export const isAlmostDue = (dueDate: Date | null, status: string): boolean => {
+    if (!dueDate || (status !== 'Pending' && status !== 'In Progress')) return false;
+    const now = new Date();
+    const twoDaysInMs = 2 * 24 * 60 * 60 * 1000;
+    const timeDiff = dueDate.getTime() - now.getTime();
+    // Item is almost due if it's within 2 days but not yet overdue
+    return timeDiff > 0 && timeDiff <= twoDaysInMs;
 };
 
 /**

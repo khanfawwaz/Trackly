@@ -8,6 +8,7 @@ import Dashboard from './dashboard/Dashboard';
 import AssignmentList from './features/assignments/AssignmentList';
 import ProjectList from './features/projects/ProjectList';
 import InternshipList from './features/internships/InternshipList';
+import InstallPrompt from './components/InstallPrompt';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const { currentUser } = useAuth();
@@ -80,6 +81,7 @@ function App() {
         <BrowserRouter>
             <AuthProvider>
                 <AppRoutes />
+                <InstallPrompt />
             </AuthProvider>
         </BrowserRouter>
     );
