@@ -12,7 +12,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.0-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-5.0.8-646cff?logo=vite)](https://vitejs.dev/)
 
-[Live Demo](#) • [Report Bug](https://github.com/khanfawwaz/Trackly/issues) • [Request Feature](https://github.com/khanfawwaz/Trackly/issues)
+[Live Demo](trackly.fawwazkhan.dev) • [Report Bug](https://github.com/khanfawwaz/Trackly/issues) • [Request Feature](https://github.com/khanfawwaz/Trackly/issues)
 
 </div>
 
@@ -37,25 +37,64 @@
 
 ## 📸 Screenshots
 
-### Dashboard
-![Dashboard Screenshot](./screenshots/dashboard.png)
-*Main dashboard showing overview of assignments, projects, and internship applications*
+## Dashboard
 
-### Assignment Tracker
-![Assignments Screenshot](./screenshots/assignments.png)
-*Manage all your assignments with priority levels and due dates*
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/51e23ce5-8fd0-45c6-92b5-de20a4ee8e1a" width="900" alt="Dashboard Overview"/>
+</p>
 
-### Project Management
-![Projects Screenshot](./screenshots/projects.png)
-*Track your academic and personal projects with status updates*
+<p align="center">
+  <em>Main dashboard showing overview of assignments, projects, and internship applications</em>
+</p>
 
-### Internship Tracker
-![Internships Screenshot](./screenshots/internships.png)
-*Monitor your internship applications and interview progress*
+---
 
-### Calendar View
-![Calendar Screenshot](./screenshots/calendar.png)
-*Visualize all your deadlines and important dates in one place*
+## Assignment Tracker
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9422b6af-3373-4aa0-8c8e-d8dd0524e61c" width="900" alt="Assignment Tracker"/>
+</p>
+
+<p align="center">
+  <em>Manage all your assignments with priority levels and due dates</em>
+</p>
+
+---
+
+## Project Management
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2fb90b7c-4604-402a-97b3-da12a8e2e60d" width="900" alt="Project Management"/>
+</p>
+
+<p align="center">
+  <em>Track your academic and personal projects with status updates</em>
+</p>
+
+---
+
+## Internship Tracker
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ed82f130-55ea-48d0-b196-a0207e7f713d" width="900" alt="Internship Tracker"/>
+</p>
+
+<p align="center">
+  <em>Monitor your internship applications and interview progress</em>
+</p>
+
+---
+
+## Mobile Version
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4311def8-1710-407b-96ee-572cc400f540" width="400" alt="Mobile View"/>
+</p>
+
+<p align="center">
+  <em>Visualize all your deadlines and important dates on your phone</em>
+</p>
+
 
 ---
 
